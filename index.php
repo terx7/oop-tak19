@@ -1,12 +1,10 @@
 <?php
 
-require 'functions.php';
-require 'Task.php';
+$query = require 'bootstrap.php';
+// require 'Task.php';
 
-$env = 'local';
+$tasks = $query->selectAll('todos');
 
-$pdo = connectToDb($env);
-
-$tasks = fetchAllTasks($pdo);
+// dd($tasks);
 
 require 'index.view.php';
