@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php require 'partials/head.php'; ?>
+
     <ul>
-        <?php foreach ( $tasks as $task ) : ?>
+        <?php foreach ( $users as $user ) : ?>
             <li>
-                <?php if ( $task->completed ) : ?>
-                    <strike><?= $task->description; ?></strike>
-                <?php else: ?>
-                    <?= $task->description; ?>
-                <?php endif; ?>
+                <?= $user->name; ?>
             </li>
         <?php endforeach; ?>
     </ul>
-</body>
-</html>
+
+    <form action="/names" method="POST">
+        <input type="text" name="name">
+        <button type="submit">Submit</button>
+    </form>
+
+<?php require 'partials/footer.php'; ?>
