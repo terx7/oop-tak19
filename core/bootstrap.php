@@ -15,6 +15,7 @@ $app['database'] = new QueryBuilder(
 
 require 'controllers/PagesController.php';
 require 'controllers/UsersController.php';
+require 'controllers/TaskController.php';
 
 function view ( $name, $data = [] ) {
 
@@ -24,7 +25,7 @@ function view ( $name, $data = [] ) {
 
 }
 
-function redirect ( $path ) { 
+function redirect ( $path ) {
 
     header("Location: /{$path}");
 

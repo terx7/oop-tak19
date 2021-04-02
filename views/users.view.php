@@ -4,6 +4,8 @@
         <?php foreach ( $users as $user ) : ?>
             <li>
                 <?= $user->name; ?>
+                <a href="/users/delete?id=<?=$user->id;?>">Delete</a>
+                <a href="/users/edit?id=<?=$user->id;?>">Edit</a>
             </li>
         <?php endforeach; ?>
     </ul>
