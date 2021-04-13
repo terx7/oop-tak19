@@ -3,20 +3,19 @@
 ?>
 
     <ul>
-    <?php foreach ($tasks as $task) : ?>
+
+            <?php foreach ( $tasks as $task ) : ?>
             <li>
-                <?php if ($task->completed) : ?>
-                    <s>
-                        <?= $task->description ?>
-                    </s> <a href="/users/edit?id=<?=$user->id;?>">Edit</a>
-                <?php else : ?>
-                    <?= $task->description ?> <a href="/users/edit?id=<?=$user->id;?>">Edit</a>
-                <?php endif; ?>
+                <input type="checkbox" name="completed" <?= $task->completed == "1"  ? "checked" : ""; ?>>
+                <?= $task->description; ?>
+                <a href="/tasks/delete?id=<?= $task->id; ?>">delete</a>
+                <a href="/tasks/edit?id=<?= $task->id; ?>">edit</a>
+            </li>
             <?php endforeach; ?>
     </ul>
 
-    <form action="/todos" method="POST">
-        <input type="text" name="name">
+    <form action="/tasks" method="POST">
+        <input type="text" name="description">
         <button type="submit">Submit</button>
     </form>
 
